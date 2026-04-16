@@ -378,12 +378,12 @@ up() {
 
 r() {
   case $1 in
-    braid)
-      cd ~/code/braid && PATH=$PATH:~/code/braid/tools/bin
+    dotfiles)
+      cd /workspaces/.codespaces/.persistedshare/dotfiles
       ;;
     *)
-      if [[ -d ~/code/$1 ]]; then
-        cd ~/code/$1
+      if [[ -d /workspaces/$1 ]]; then
+        cd /workspaces/$1
       else
         echo >&2 "Unknown repo: ${1@Q}"
         return 1
@@ -439,10 +439,14 @@ shortprompt() {
 if [[ $USER == pylon ]]; then
   source /home/pylon/.bashrc.d/800-pg-utils
   source /home/pylon/.bashrc.d/github-user.sh
-  export EDITOR=hx
+  if type -P hx >/dev/null; then
+    export EDITOR=hx
+  else
+    export EDITOR=nvim
+  fi
   export HELIX_RUNTIME=~/.local/share/helix/runtime
   LESS='-SR -#.1 -x4 --ignore-case --mouse --quit-if-one-screen --no-init'
-  PATH=/home/pylon/.local/bin:/workspace/braid/tools/bin:$PATH
+  PATH=/home/pylon/bin:/home/pylon/.local/bin:/workspace/braid/tools/bin:$PATH
   if [[ $PYLON_ENV ]]; then
     export NX_PUBLIC_PYLON_ENV=$PYLON_ENV
   fi

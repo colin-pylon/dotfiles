@@ -10,14 +10,12 @@ paths = {
     "bin/jfd": "bin/jfd",
     "bin/jjlogwatch": "bin/jjlogwatch",
     "gitconfig": ".gitconfig",
-    "graphite_nuxes": "",
+    "graphite_nuxes": ".local/share/graphite/nuxes",
     "helix/config.toml": ".config/helix/config.toml",
     "helix/kalgykai-dark.toml": ".config/helix/themes/kalgykai-dark.toml",
     "helix/languages.toml": ".config/helix/languages.toml",
-    "config/jj/config.toml": ".config/jj/config.toml",
+    "jj-config.toml": ".config/jj/config.toml",
     "inputrc": ".inputrc",
-    "local/bin/hx": ".local/bin/hx",
-    "local/share/helix": ".local/share/helix",
     "tmux.conf": ".tmux.conf",
 }
 
@@ -25,27 +23,31 @@ def log(s: str) -> None:
     print(s, file=sys.stderr)
     
 def install() -> None:
-    for source_relpath, dest_relpath in paths:
+    for source_relpath, dest_relpath in paths.items():
         source = Path.cwd() / source_relpath
         dest = Path.home() / dest_relpath
 
-        if source.samefile(dest):
-            log(f"OK    {dest}")
+        if not source.exists():
+            log(f"MISSING {source_relpath}")
             continue
 
-        if dest.is_file(follow_symlinks=False) or dest.is_symlink():
+        if dest.exists() and source.samefile(dest):
+            log(f"OK {dest}")
+            continue
+
+        if dest.is_file() or dest.is_symlink():
             backup = dest.with_name(f"{dest.name}-pylon")
-            log(f"mv    {dest} -> {backup}")
+            log(f"mv {dest} -> {backup}")
             dest.rename(backup)
-        else:
-            log(f"SKIP  {dest}")
+        elif dest.exists():
+            log(f"???? {dest}")
             continue
 
-        if len(dest_relpath.parts) > 1 and not dest.parent.is_dir():
+        if "/" in dest_relpath and not dest.parent.is_dir():
             log(f"mkdir {dest.parent}")
             dest.parent.mkdir(parents=True)
 
-        log(f"link  {dest} -> {source}")
+        log(f"link {dest} -> {source}")
         dest.symlink_to(source)
 
 if __name__ == "__main__":
