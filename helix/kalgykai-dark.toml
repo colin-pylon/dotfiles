@@ -1,0 +1,120 @@
+"attribute" = "cyan"
+"comment" = { fg = "dim-white", modifiers = ["italic"] }
+"constant" = "blue"
+"constant.character" = "yellow"
+"constant.character.escape" = { fg = "orange", modifiers = ["italic"] }
+"function" = "green"
+"function.macro" = "violet"
+"function.special" = "violet"
+"keyword" = { fg = "dim-white", modifiers = ["bold"] }
+"label" = "cyan"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.heading" = "orange"
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.label" = "blue"
+"operator" = "dim-white"
+"punctuation" = "dim-white"
+"string" = "yellow"
+"tag" = "green"
+"type" = "cyan"
+"variable" = "white"
+"variable.builtin" = { modifiers = ["bold"] }
+"variable.parameter" = "dim-white"
+
+"hint" = { fg = "dim-blue", modifiers = ["italic"] }
+"info" = { fg = "dim-violet", modifiers = ["italic"] }
+"warning" = { fg = "dim-magenta", modifiers = ["italic"] }
+"error" = { fg = "dim-red", modifiers = ["italic"] }
+"diagnostic.hint" = { underline = { color = "dim-blue" } }
+"diagnostic.info" = { underline = { color = "dim-violet" } }
+"diagnostic.warning" = { underline = { color = "dim-magenta" } }
+"diagnostic.error" = { underline = { color = "dim-red" } }
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "orange"
+
+"ui.bufferline" = { fg = "dim-white", bg = "bright-bg" }
+"ui.bufferline.active" = { fg = "bright-white", bg = "grey", modifiers = ["bold"]}
+"ui.cursor" = { fg = "black", bg = "dim-white" }
+"ui.cursor.match" = { fg = "bright-orange" }
+"ui.cursor.primary" = { fg = "black", bg = "bright-white" }
+"ui.cursor.primary.insert" = { fg = "black", bg = "bright-green" }
+"ui.cursor.primary.select" = { fg = "black", bg = "bright-cyan" }
+"ui.cursorline.primary" = { bg = "bright-bg" }
+"ui.linenr" = "grey"
+"ui.linenr.selected" = { fg = "grey", modifiers = ["bold"] }
+"ui.selection" = { fg = "black", bg = "hl-grey" }
+"ui.selection.primary" = { fg = "black", bg = "white" }
+"ui.statusline" = { fg = "bright-white", bg = "grey", modifiers = ["bold"] }
+"ui.statusline.inactive" = { fg = "dim-white", bg = "bright-bg" }
+"ui.statusline.normal" = { fg = "black", bg = "bright-white", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "black", bg = "bright-green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "black", bg = "bright-cyan", modifiers = ["bold"] }
+"ui.text" = "white"
+"ui.virtual" = { fg = "dim-grey" }
+"ui.virtual.inlay-hint" = { fg = "grey", modifiers = ["italic"] }
+"ui.virtual.jump-label" = { fg = "bright-red", bg = "black" }
+"ui.virtual.ruler" = { bg = "bright-bg" }
+"ui.window" = { fg = "grey" }  # border between windows
+
+# Command line
+"ui.help" = { fg = "bright-blue", bg = "bright-bg" }
+"ui.menu" = { fg = "blue", bg = "bright-bg" }
+"ui.menu.selected" = { fg = "bg", bg = "blue" }
+"ui.text.inactive" = { fg = "dim-white" }
+
+# File picker
+"ui.background" = { fg = "dim-white", bg = "bg" }
+"ui.text.focus" = { fg = "black", bg = "green", modifiers = ["bold"] }
+"special" = { underline = { style = "line" } }  # matching characters in file picker
+"ui.highlight" = { bg = "hl-grey" }  # highlight on lines containing reference
+
+# Keybinding help popup
+"ui.popup" = { fg = "bright-blue", bg = "bright-bg" }
+"ui.text.info" = { fg = "bright-blue" }
+
+"note" = { fg = "bright-orange" }
+"todo" = { fg = "bright-red" }
+
+[palette]
+black = "#000000"
+bg = "#151919"
+bright-bg = "#202223"
+dim-grey = "#2b2e31"
+grey = "#45484b"
+dim-white = "#737576"
+white = "#b7b7b7"
+red = "#cc554a"
+orange = "#c27324"
+yellow = "#ae9829"
+green = "#5b9d2c"
+cyan = "#00a391"
+blue = "#2b92e1"
+violet = "#876dda"
+magenta = "#b15ba7"
+bright-white = "#e8e8e8"
+bright-red = "#f97e70"
+bright-orange = "#ee9b52"
+bright-yellow = "#d8c159"
+bright-green = "#83c758"
+bright-cyan = "#49ccba"
+bright-blue = "#5abbff"
+bright-violet = "#ae96ff"
+bright-magenta = "#dc83d0"
+dim-red = "#8e322a"
+dim-orange = "#884d0d"
+dim-yellow = "#7c6b18"
+dim-green = "#396d0d"
+dim-cyan = "#007164"
+dim-blue = "#0d64a2"
+dim-violet = "#5b469b"
+dim-magenta = "#7a3872"
+bg-red = "#441a15"
+bg-orange = "#40260a"
+bg-yellow = "#39330e"
+bg-cyan = "#003630"
+bg-blue = "#06304e"
+hl-grey = "#45484b"
+hl-yellow = "#8b8043"
+hl-cyan = "#39867b"

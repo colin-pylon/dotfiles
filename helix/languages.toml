@@ -1,0 +1,126 @@
+[use-grammars]
+only = [
+  "awk",
+  "bash",
+  "c",
+  "caddyfile",
+  "cmake",
+  "comment",
+  "cpp",
+  "css",
+  "csv",
+  "diff",
+  "docker-compose",
+  "dockerfile",
+  "dunstrc",
+  "env",
+  "fish",
+  "gdscript",
+  "ghostty",
+  "git-attributes",
+  "git-commit",
+  "git-config",
+  "git-ignore",
+  "git-notes",
+  "git-rebase",
+  "glsl",
+  "go",
+  "godot-resource",
+  "gomod",
+  "gotmpl",
+  "gowork",
+  "graphql",
+  "hosts",
+  "html",
+  "htmldjango",
+  "ini",
+  "java",
+  "javascript",
+  "jinja",
+  "jjdescription",
+  "jq",
+  "json",
+  "jsonc",
+  "jsx",
+  "kotlin",
+  "lilypond",
+  "lilypond",
+  "log",
+  "lua",
+  "make",
+  "markdown",
+  "nix",
+  "odin",
+  "passwd",
+  "perl",
+  "python",
+  "regex",
+  "rst",
+  "rust",
+  "scss",
+  "shellcheckrc",
+  "sql",
+  "sshclientconfig",
+  "strace",
+  "toml",
+  "tsx",
+  "typescript",
+  "xml",
+  "yaml",
+  "zig",
+]
+
+[[language]]
+name = "html"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["ruff"]
+rulers = [88]
+text-width = 88
+
+[[language]]
+name = "mex"
+scope = "source.mex"
+file-types = ["mex"]
+roots = []
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.godot]
+command = "nc"
+args = ["127.0.0.1", "6005"]
+
+[[language]]
+name = "gdscript"
+language-id = "gdscript" 
+language-servers = ["godot"]
+
+[[grammar]]
+name = "lilypond"
+source = { git = "https://github.com/nwhetsell/tree-sitter-lilypond", rev = "2c64b5b2de6d1611c86d332c0c3a343034b7a717" }
+
+[[language]]
+name = "lilypond"
+scope = "source.lilypond"
+file-types = ["ly"]
+roots = []
+comment-token = "%"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "text"
+scope = "source.text"
+file-types = []
+roots = []
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+formatter = { command = "node_modules/.bin/prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+[language-server.typescript-language-server]
+command = "node_modules/.bin/typescript-language-server"

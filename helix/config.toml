@@ -1,0 +1,70 @@
+theme = "kalgykai-dark"
+
+[editor]
+auto-completion = false
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+end-of-line-diagnostics = "hint"
+idle-timeout = 50
+insert-final-newline = false
+jump-label-alphabet = "woeirusldkfjgh"
+scroll-lines = 1
+text-width = 79
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+#'<' = '>'
+'«' = '»'
+#'"' = '"'
+'“' = '”'
+#"'" = "'"
+'‘' = '’'
+#'`' = '`'
+
+[editor.file-picker]
+hidden = false
+
+[editor.gutters]
+layout = ["diagnostics", "line-numbers", "spacer", "diff"]
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+max-diagnostics = 3
+
+[editor.lsp]
+auto-signature-help = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.whitespace.render]
+newline = "all"
+tab = "all"
+
+[editor.whitespace.characters]
+newline = "⏎"
+
+[keys.normal]
+"X" = "extend_line_above"
+"C-h" = "jump_view_left"
+"C-j" = "jump_view_down"
+"C-k" = "jump_view_up"
+"C-l" = "jump_view_right"
+
+[keys.normal.space]
+"o" = ":reflow"
+"u" = ":! echo https://github.com/braidlending/braid/blob/main/%{buffer_name}#L%{cursor_line} | copy 2>/dev/null"
+
+[keys.insert]
+"C-n" = "completion"
+"C-[" = "normal_mode"
+"C-a" = "goto_line_start"
+"C-e" = "goto_line_end"
+"C-f" = ["move_next_long_word_end", "extend_char_right"]
+"C-b" = ["move_prev_long_word_start"]
+
+[keys.select]
+"C-[" = "normal_mode"
