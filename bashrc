@@ -438,6 +438,7 @@ shortprompt() {
 
 if [[ $USER == pylon ]]; then
   source /home/pylon/.bashrc.d/800-pg-utils
+  source /home/pylon/.bashrc.d/999-runtime-secrets
   source /home/pylon/.bashrc.d/github-user.sh
   if type -P hx >/dev/null; then
     export EDITOR=hx
