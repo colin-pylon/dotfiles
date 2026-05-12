@@ -41,7 +41,7 @@ alias quotes="sed \"s/^/'/; s/$/'/\""
 alias rm='rm --one-file-system'
 alias sc=systemctl
 alias scu='systemctl --user'
-alias ssh='ssh-with-dotfiles'
+alias ssh='ssh-with-terminfo'
 alias ssh-patient='ssh -o ConnectTimeout=60 -o ServerAliveCountMax=6 -o ServerAliveInterval=10'
 alias tree='tree -CF --charset=utf-8'
 alias uncommas="tr , '\n'"
@@ -378,12 +378,12 @@ up() {
 
 r() {
   case $1 in
-    dotfiles)
-      cd /workspaces/.codespaces/.persistedshare/dotfiles
+    dotfiles|d)
+      cd /workspaces/.codespaces/.persistedshare/dotfiles && rename-tmux-window dotfiles
       ;;
     *)
       if [[ -d /workspaces/$1 ]]; then
-        cd /workspaces/$1
+        cd /workspaces/"$1" && rename-tmux-window "$1"
       else
         echo >&2 "Unknown repo: ${1@Q}"
         return 1
