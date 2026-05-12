@@ -5,6 +5,7 @@ import sys
 paths = {
     "bashrc": ".bashrc",
     "bash_profile": ".bash_profile",
+    "bin/ask-llm": "bin/ask-llm",
     "bin/copy": "bin/copy",
     "bin/e": "bin/e",
     "bin/jfd": "bin/jfd",
@@ -19,9 +20,11 @@ paths = {
     "tmux.conf": ".tmux.conf",
 }
 
+
 def log(s: str) -> None:
     print(s, file=sys.stderr)
-    
+
+
 def install() -> None:
     for source_relpath, dest_relpath in paths.items():
         source = Path.cwd() / source_relpath
@@ -49,6 +52,7 @@ def install() -> None:
 
         log(f"link {dest} -> {source}")
         dest.symlink_to(source)
+
 
 if __name__ == "__main__":
     install()
