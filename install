@@ -10,6 +10,8 @@ paths = {
     "bin/e": "bin/e",
     "bin/jfd": "bin/jfd",
     "bin/jjlogwatch": "bin/jjlogwatch",
+    "claude/CLAUDE.md": ".claude/CLAUDE.md",
+    "claude/jj_workflow.md": ".claude/jj_workflow.md",
     "gitconfig": ".gitconfig",
     "graphite_nuxes": ".local/share/graphite/nuxes",
     "helix/config.toml": ".config/helix/config.toml",
