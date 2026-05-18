@@ -451,6 +451,7 @@ if [[ $USER == pylon ]]; then
   if [[ $PYLON_ENV ]]; then
     export NX_PUBLIC_PYLON_ENV=$PYLON_ENV
   fi
+  export TZ=America/Los_Angeles
 
   alias pc=process-compose
   alias sso='aws sso login --use-device-code --no-browser'
