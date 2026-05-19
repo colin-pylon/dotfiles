@@ -1,27 +1,28 @@
 #!/usr/bin/env python3
+from getpass import getuser
 from pathlib import Path
 import sys
 
 paths = {
-    "bashrc": ".bashrc",
-    "bash_profile": ".bash_profile",
+    ".bash_profile": "bash_profile",
+    ".bashrc": "bashrc",
+    ".claude/CLAUDE.md": "claude/CLAUDE.md",
+    ".claude/code-comments.md": "claude/code-comments.md",
+    ".claude/jj-workflow.md": "claude/jj-workflow.md",
+    ".claude/skills/handle-pr-feedback/SKILL.md": "claude/handle-pr-feedback.md",
+    ".config/helix/config.toml": "helix/config.toml",
+    ".config/helix/languages.toml": "helix/languages.toml",
+    ".config/helix/themes/kalgykai-dark.toml": "helix/kalgykai-dark.toml",
+    ".config/jj/config.toml": "jj-config.toml",
+    ".gitconfig": "gitconfig",
+    ".inputrc": "inputrc",
+    ".local/share/graphite/nuxes": "graphite_nuxes",
+    ".tmux.conf": "tmux.conf",
     "bin/ask-llm": "bin/ask-llm",
     "bin/copy": "bin/copy",
     "bin/e": "bin/e",
     "bin/jfd": "bin/jfd",
     "bin/jjlogwatch": "bin/jjlogwatch",
-    "claude/CLAUDE.md": ".claude/CLAUDE.md",
-    "claude/handle-pr-feedback.md": ".claude/skills/handle-pr-feedback/SKILL.md",
-    "claude/code-comments.md": ".claude/code-comments.md",
-    "claude/jj-workflow.md": ".claude/jj-workflow.md",
-    "gitconfig": ".gitconfig",
-    "graphite_nuxes": ".local/share/graphite/nuxes",
-    "helix/config.toml": ".config/helix/config.toml",
-    "helix/kalgykai-dark.toml": ".config/helix/themes/kalgykai-dark.toml",
-    "helix/languages.toml": ".config/helix/languages.toml",
-    "jj-config.toml": ".config/jj/config.toml",
-    "inputrc": ".inputrc",
-    "tmux.conf": ".tmux.conf",
 }
 
 
@@ -30,7 +31,10 @@ def log(s: str) -> None:
 
 
 def install() -> None:
-    for source_relpath, dest_relpath in paths.items():
+    if getuser() != "pylon":
+        raise RuntimeError("Current user is not 'pylon'; refusing to install")
+
+    for dest_relpath, source_relpath in paths.items():
         source = Path.cwd() / source_relpath
         dest = Path.home() / dest_relpath
 
