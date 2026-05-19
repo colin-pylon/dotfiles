@@ -377,13 +377,16 @@ up() {
 }
 
 r() {
-  case $1 in
+  case ${1%/} in
+    braid)
+      cd ~/code/braid && PATH=$PATH:~/code/braid/tools/bin && rename-tmux-window braid
+      ;;
     dotfiles|d)
-      cd /workspaces/.codespaces/.persistedshare/dotfiles && rename-tmux-window dotfiles
+      cd ~/dotfiles && rename-tmux-window dotfiles
       ;;
     *)
-      if [[ -d /workspaces/$1 ]]; then
-        cd /workspaces/"$1" && rename-tmux-window "$1"
+      if [[ -d ~/code/$1 ]]; then
+        cd ~/code/$1 && rename-tmux-window "$1"
       else
         echo >&2 "Unknown repo: ${1@Q}"
         return 1
@@ -438,20 +441,14 @@ shortprompt() {
 
 if [[ $USER == pylon ]]; then
   source /home/pylon/.bashrc.d/800-pg-utils
-  source /home/pylon/.bashrc.d/999-runtime-secrets
   source /home/pylon/.bashrc.d/github-user.sh
-  if type -P hx >/dev/null; then
-    export EDITOR=hx
-  else
-    export EDITOR=nvim
-  fi
+  export EDITOR=hx
   export HELIX_RUNTIME=~/.local/share/helix/runtime
   LESS='-SR -#.1 -x4 --ignore-case --mouse --quit-if-one-screen --no-init'
-  PATH=/home/pylon/bin:/home/pylon/.local/bin:/workspace/braid/tools/bin:$PATH
+  PATH=/home/pylon/.local/bin:/workspace/braid/tools/bin:$PATH
   if [[ $PYLON_ENV ]]; then
     export NX_PUBLIC_PYLON_ENV=$PYLON_ENV
   fi
-  export TZ=America/Los_Angeles
 
   alias pc=process-compose
   alias sso='aws sso login --use-device-code --no-browser'
