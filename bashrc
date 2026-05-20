@@ -379,10 +379,18 @@ up() {
 r() {
   case ${1%/} in
     braid)
-      cd ~/code/braid && PATH=$PATH:~/code/braid/tools/bin && rename-tmux-window braid
+      if [[ $CODESPACES ]]; then
+        cd /workspaces/braid && PATH=$PATH:/workspaces/braid/tools/bin && rename-tmux-window braid
+      else
+        cd ~/code/braid && PATH=$PATH:~/code/braid/tools/bin && rename-tmux-window braid
+      fi
       ;;
     dotfiles|d)
-      cd ~/dotfiles && rename-tmux-window dotfiles
+      if [[ $CODESPACES ]]; then
+        cd /workspaces/.codespaces/.persistedshare/dotfiles && rename-tmux-window dotfiles
+      else
+        cd ~/dotfiles && rename-tmux-window dotfiles
+      fi
       ;;
     *)
       if [[ -d ~/code/$1 ]]; then
@@ -441,6 +449,7 @@ shortprompt() {
 
 if [[ $USER == pylon ]]; then
   source /home/pylon/.bashrc.d/800-pg-utils
+  source /home/pylon/.bashrc.d/999-runtime-secrets
   source /home/pylon/.bashrc.d/github-user.sh
   export EDITOR=hx
   export HELIX_RUNTIME=~/.local/share/helix/runtime
@@ -449,6 +458,7 @@ if [[ $USER == pylon ]]; then
   if [[ $PYLON_ENV ]]; then
     export NX_PUBLIC_PYLON_ENV=$PYLON_ENV
   fi
+export TZ=America/Los_Angeles
 
   alias pc=process-compose
   alias sso='aws sso login --use-device-code --no-browser'
