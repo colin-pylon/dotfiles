@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+d=~/dotfiles
+cp -t . $d/bash_profile
+cp -t . $d/bashrc
+cp -t . $d/gitconfig
+cp -t . $d/graphite_nuxes
+cp -t . $d/inputrc
+cp -t . $d/tmux.conf
+cp -t ./bin $d/bin/ask-llm
+cp -t ./bin $d/bin/copy
+cp -t ./bin $d/bin/e
+cp -t ./bin $d/bin/jfd
+cp -t ./bin $d/bin/jjlogwatch
+cp -t ./claude $d/claude/CLAUDE.md
+cp -t ./claude $d/claude/code-comments.md
+cp -t ./claude $d/claude/handle-pr-feedback.md
+cp -t ./claude $d/claude/jj-workflow.md
+cp -t ./helix $d/helix/languages.toml
+cp -t ./helix ~/.config/helix/config.toml
+cp -t ./helix ~/.config/helix/themes/kalgykai-dark.toml
+cp ~/.config/jj/config.toml jj-config.toml
