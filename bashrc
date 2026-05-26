@@ -454,11 +454,11 @@ if [[ $USER == pylon ]]; then
   export EDITOR=hx
   export HELIX_RUNTIME=~/.local/share/helix/runtime
   LESS='-SR -#.1 -x4 --ignore-case --mouse --quit-if-one-screen --no-init'
-  PATH=/home/pylon/.local/bin:/workspace/braid/tools/bin:$PATH
+  PATH=/home/pylon/.local/bin:/workspace/braid/tools/bin:$PATH:/home/pylon/bin
   if [[ $PYLON_ENV ]]; then
     export NX_PUBLIC_PYLON_ENV=$PYLON_ENV
   fi
-export TZ=America/Los_Angeles
+  export TZ=America/Los_Angeles
 
   alias pc=process-compose
   alias sso='aws sso login --use-device-code --no-browser'
