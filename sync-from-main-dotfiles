@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 d=~/dotfiles
-cp -t . $d/bash_profile
+# cp -t . $d/bash_profile
 cp -t . $d/bashrc
 cp -t . $d/gitconfig
 cp -t . $d/graphite_nuxes
