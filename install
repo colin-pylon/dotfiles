@@ -22,7 +22,8 @@ paths = {
     "bin/copy": "bin/copy",
     "bin/e": "bin/e",
     "bin/jfd": "bin/jfd",
-    "bin/jjlogwatch": "bin/jjlogwatch",
+    "bin/jj-fix-bookmarks": "bin/jj-fix-bookmarks",
+    "bin/jj-log-watch": "bin/jj-log-watch",
 }
 
 

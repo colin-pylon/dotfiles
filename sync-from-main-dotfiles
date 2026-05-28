@@ -11,7 +11,8 @@ cp -t ./bin $d/bin/ask-llm
 cp -t ./bin $d/bin/copy
 cp -t ./bin $d/bin/e
 cp -t ./bin $d/bin/jfd
-cp -t ./bin $d/bin/jjlogwatch
+cp -t ./bin $d/bin/jj-fix-bookmarks
+cp -t ./bin $d/bin/jj-log-watch
 cp -t ./claude $d/claude/CLAUDE.md
 cp -t ./claude $d/claude/code-comments.md
 cp -t ./claude $d/claude/handle-pr-feedback.md
