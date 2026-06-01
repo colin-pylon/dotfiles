@@ -9,6 +9,7 @@ paths = {
     ".claude/CLAUDE.md": "claude/CLAUDE.md",
     ".claude/code-comments.md": "claude/code-comments.md",
     ".claude/jj-workflow.md": "claude/jj-workflow.md",
+    ".claude/skills/babysit-stack/SKILL.md": "claude/babysit-stack.md",
     ".claude/skills/handle-pr-feedback/SKILL.md": "claude/handle-pr-feedback.md",
     ".config/helix/config.toml": "helix/config.toml",
     ".config/helix/languages.toml": "helix/languages.toml",

@@ -14,6 +14,7 @@ cp -t ./bin $d/bin/jfd
 cp -t ./bin $d/bin/jj-fix-bookmarks
 cp -t ./bin $d/bin/jj-log-watch
 cp -t ./claude $d/claude/CLAUDE.md
+cp -t ./claude $d/claude/babysit-stack.md
 cp -t ./claude $d/claude/code-comments.md
 cp -t ./claude $d/claude/handle-pr-feedback.md
 cp -t ./claude $d/claude/jj-workflow.md
