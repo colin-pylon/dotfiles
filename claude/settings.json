@@ -4,6 +4,9 @@
     "CLAUDE_CODE_ENABLE_AUTO_MODE": "1"
   },
   "permissions": {
+    "allow": [
+      "Bash(gh *)""
+    ],
     "deny": [
       "Bash(gt *)"
     ],
@@ -22,6 +25,5 @@
   "theme": "dark-ansi",
   "preferredNotifChannel": "terminal_bell",
   "skipAutoPermissionPrompt": true,
-  "defaultMode": "acceptEdits",
-  "model": "us.anthropic.claude-opus-4-8[1m]"
+  "defaultMode": "acceptEdits"
 }
