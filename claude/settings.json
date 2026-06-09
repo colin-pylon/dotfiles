@@ -1,14 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "awaySummaryEnabled": false,
-  "defaultMode": "acceptEdits",
+  "env": {
+    "CLAUDE_CODE_ENABLE_AUTO_MODE": "1",
+    "FORCE_COLOR": "1"
+  },
   "permissions": {
-    "defaultMode": "auto",
     "deny": [
       "Bash(gt *)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
-  "preferredNotifChannel": "terminal_bell",
   "skillOverrides": {
     "address-reviewer-feedback": "off",
     "link-stack-to-linear": "off",
@@ -18,6 +19,10 @@
     "repair-ci-failures": "off",
     "resolve-merge-conflicts": "off"
   },
-  "skipAutoPermissionPrompt": true,
+  "awaySummaryEnabled": false,
   "theme": "dark-ansi"
+  "preferredNotifChannel": "terminal_bell",
+  "skipAutoPermissionPrompt": true,
+  "defaultMode": "acceptEdits",
+  "model": "us.anthropic.claude-opus-4-8",
 }
