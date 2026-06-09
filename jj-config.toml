@@ -37,7 +37,7 @@ stack = "bottom::top"
 stack_context = "bottoms-::heads(current:: & visible())"
 
 # Allow changes with graphite bookmarks to remain mutable
-"immutable_heads()" = "builtin_immutable_heads() ~ remote_bookmarks(graphite-base/*) ~ remote_bookmarks(gtmq_*)"
+"immutable_heads()" = "builtin_immutable_heads() ~ (bookmarks() & (remote_bookmarks(graphite-base/*) | remote_bookmarks(gtmq_*)))"
 
 [revsets]
 bookmark-advance-to = "@-"
