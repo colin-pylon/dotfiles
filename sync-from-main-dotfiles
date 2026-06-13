@@ -19,6 +19,7 @@ cp -t ./claude $d/claude/jj-workflow.md
 cp -t ./claude $d/claude/pr-descriptions.md
 cp -t ./claude $d/claude/settings.json
 cp -t ./claude $d/claude/writing-as-claude.md
+cp -t ./claude/coding-guidelines $d/claude/coding-guidelines/bash.md
 cp -t ./claude/skills $d/claude/skills/babysit-stack.md
 cp -t ./claude/skills $d/claude/skills/handle-pr-feedback.md
 cp -t ./helix $d/helix/languages.toml

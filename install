@@ -11,6 +11,7 @@ paths = {
     ".claude/jj-workflow.md": "claude/jj-workflow.md",
     ".claude/pr-descriptions.md": "claude/pr-descriptions.md",
     ".claude/settings.json": "claude/settings.json",
+    ".claude/coding-guidelines/bash.md": "claude/coding-guidelines/bash.md",
     ".claude/skills/babysit-stack/SKILL.md": "claude/skills/babysit-stack.md",
     ".claude/skills/handle-pr-feedback/SKILL.md": "claude/skills/handle-pr-feedback.md",
     ".claude/writing-as-claude.md": "claude/writing-as-claude.md",
