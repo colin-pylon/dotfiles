@@ -9,6 +9,8 @@ paths = {
     ".claude/CLAUDE.md": "claude/CLAUDE.md",
     ".claude/coding-guidelines/bash.md": "claude/coding-guidelines/bash.md",
     ".claude/coding-guidelines/comments.md": "claude/coding-guidelines/comments.md",
+    ".claude/coding-guidelines/review.md": "claude/coding-guidelines/review.md",
+    ".claude/hooks/review-changed-code": "claude/hooks/review-changed-code",
     ".claude/settings.json": "claude/settings.json",
     ".claude/skills/babysit-stack/SKILL.md": "claude/skills/babysit-stack.md",
     ".claude/skills/handle-pr-feedback/SKILL.md": "claude/skills/handle-pr-feedback.md",
