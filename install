@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from getpass import getuser
 from pathlib import Path
+import subprocess
 import sys
+import traceback
 
 paths = {
     ".bash_profile": "bash_profile",
@@ -70,5 +72,22 @@ def install() -> None:
         dest.symlink_to(source)
 
 
+def fetch_and_rebase():
+    if not Path(".jj").exists():
+        subprocess.run("jj git init", shell=True, check=True)
+        subprocess.run("jj bookmark track main --remote=origin", shell=True, check=True)
+    subprocess.run("jj git fetch && jj rebase -d main", shell=True, check=True)
+
+
 if __name__ == "__main__":
+    if "--help" in sys.argv:
+        print("usage: ./install [--no-fetch]")
+        sys.exit(0)
+    if "--no-fetch" not in sys.argv:
+        try:
+            fetch_and_rebase()
+        except subprocess.CalledProcessError:
+            log("error: jj init/fetch/rebase failed:")
+            traceback.print_exc()
+            log("Continuing anyway...")
     install()
