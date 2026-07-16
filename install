@@ -41,7 +41,7 @@ def log(s: str) -> None:
 
 
 def install() -> None:
-    if getuser() != "pylon":
+    if getuser() not in ["pylon", "coder"]:
         raise RuntimeError("Current user is not 'pylon'; refusing to install")
 
     for dest_relpath, source_relpath in paths.items():
