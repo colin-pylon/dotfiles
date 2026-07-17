@@ -41,6 +41,7 @@
     ]
   },
   "awaySummaryEnabled": false,
+  "includeCoAuthoredBy": false,
   "theme": "dark-ansi",
   "preferredNotifChannel": "terminal_bell",
   "skipAutoPermissionPrompt": true,
