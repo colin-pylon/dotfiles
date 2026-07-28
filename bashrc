@@ -377,29 +377,45 @@ up() {
 }
 
 r() {
+  local repo path_append
   case ${1%/} in
     braid)
       if [[ $CODESPACES ]]; then
-        cd /workspaces/braid && PATH=$PATH:/workspaces/braid/tools/bin && rename-tmux-window braid
+        repo=/workspaces/braid
+        path_append=$repo/tools/bin
       else
-        cd ~/code/braid && PATH=$PATH:~/code/braid/tools/bin && rename-tmux-window braid
+        repo=~/code/braid
+        path_append=$repo/tools/bin
       fi
       ;;
     dotfiles|d)
       if [[ $CODESPACES ]]; then
-        cd /workspaces/.codespaces/.persistedshare/dotfiles && rename-tmux-window dotfiles
+        repo=/workspaces/.codespaces/.persistedshare/dotfiles
+      elif [[ $CODER ]]; then
+        repo=~/.config/coderv2/dotfiles
       else
-        cd ~/dotfiles && rename-tmux-window dotfiles
+        repo=~/dotfiles
       fi
       ;;
     *)
       if [[ -d ~/code/$1 ]]; then
-        cd ~/code/$1 && rename-tmux-window "$1"
-      else
-        echo >&2 "Unknown repo: ${1@Q}"
-        return 1
+        repo=~/code/$1
+      elif [[ -d ~/$1 ]]; then
+        repo=~/$1
       fi
+      ;;
   esac
+  if [[ $repo ]]; then
+    if cd "$repo"; then
+      rename-tmux-window "$(basename "$repo")"
+      if [[ $path_append ]]; then
+        PATH=$PATH:$path_append
+      fi
+    fi
+  else
+    echo >&2 "Unknown repo: ${1@Q}"
+    return 1
+  fi
 }
 
 git_prompt_path=/usr/share/git/git-prompt.sh
@@ -463,4 +479,15 @@ if [[ $USER == pylon ]]; then
   alias pc=process-compose
   alias sso='aws sso login --use-device-code --no-browser'
   alias tail-logs='less -RS +F ~/process-compose.log'
+elif [[ $USER == coder ]]; then
+  export EDITOR=hx
+  export LC_ALL=C.UTF-8
+  PATH="$HOME/bin:$PATH"
+  # source ~/.config/fusion/shellrc.sh
+fi
+
+if [[ $USER == pylon || $USER == coder ]]; then
+  if ! clients=$(tmux list-clients -t =auto 2>/dev/null) || ! [[ $clients ]]; then
+    tmux new-session -s auto -A
+  fi
 fi
