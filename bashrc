@@ -487,7 +487,11 @@ elif [[ $USER == coder ]]; then
 fi
 
 if [[ $USER == pylon || $USER == coder ]]; then
-  if ! clients=$(tmux list-clients -t =auto 2>/dev/null) || ! [[ $clients ]]; then
-    tmux new-session -s auto -A
+  if ! tmux has-session 2>/dev/null; then
+    # no sessions -> create one
+    tmux new-session -s "${HOSTNAME%%.*}" -A
+  elif [[ $(tmux list-sessions -F '#{session_attached}') == '0' ]]; then
+    # single session with no attached clients -> attach
+    tmux attach
   fi
 fi
