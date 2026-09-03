@@ -483,7 +483,7 @@ elif [[ $USER == coder ]]; then
   export EDITOR=hx
   export LC_ALL=C.UTF-8
   PATH="$HOME/bin:$PATH"
-  # source ~/.config/fusion/shellrc.sh
+  source ~/.bashrc.dotfiles-original
 fi
 
 if [[ $USER == pylon || $USER == coder ]]; then
