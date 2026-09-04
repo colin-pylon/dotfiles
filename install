@@ -58,7 +58,7 @@ def install() -> None:
             continue
 
         if dest.is_file() or dest.is_symlink():
-            backup = dest.with_name(f"{dest.name}-pylon")
+            backup = dest.with_name(f"{dest.name}.dotfiles-original")
             log(f"mv {dest} -> {backup}")
             dest.rename(backup)
         elif dest.exists():
